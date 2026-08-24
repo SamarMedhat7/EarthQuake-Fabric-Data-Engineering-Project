@@ -416,7 +416,6 @@ The final Gold-layer data is consumed by Power BI to provide a visual analytics 
 The project also demonstrates pipeline execution for different processing dates, including 25/07/2026 and 27/07/2026.
 
 This provides a clear and scalable foundation for building earthquake analytics and reporting solutions using Microsoft Fabric.
-"""
 
 
 
