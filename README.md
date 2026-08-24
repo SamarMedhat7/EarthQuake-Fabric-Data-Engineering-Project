@@ -299,123 +299,125 @@ Gold layer.ipynb
 
 
 
-## Monitor Pipeline
+# 8. Monitor Pipeline
 
 ![Architecture](screenshots/10.png)
 
+# 9. Power BI Dashboard
+
+The Gold-layer data is used to create an interactive Microsoft Power BI dashboard for earthquake analysis and reporting.
+
+The dashboard provides a visual representation of the processed earthquake data and allows the final Gold-layer dataset to be consumed for analytics.
 
 
-# 8. Microsoft Fabric Components
+## Pipeline Execution Date — 25/07/2026
+
+![Architecture](screenshots/first5.png)
+![Architecture](screenshots/first1.png)
+![Architecture](screenshots/first2.png)
+![Architecture](screenshots/first3.png)
+![Architecture](screenshots/first4.png)
+
+
+
+
+## Pipeline Run Date — 27/07/2026
+
+![Architecture](screenshots/second1.png)
+
+## 10. Microsoft Fabric Components
 
 The project uses the following Microsoft Fabric capabilities:
 
-- **Fabric Lakehouse** for data storage
-- **Spark Notebooks** for data engineering
-- **PySpark** for distributed transformations
-- **Lakehouse Tables** for Silver and Gold datasets
-- **Lakehouse Files** for Bronze raw JSON data
-- **External repository/library configuration** for the `reverse_geocoder` dependency
+Fabric Lakehouse for data storage
+Spark Notebooks for data engineering
+PySpark for distributed transformations
+Lakehouse Tables for Silver and Gold datasets
+Lakehouse Files for Bronze raw JSON data
+Microsoft Fabric Pipelines for orchestration
+Fabric Environment for managing the reverse_geocoder Python dependency
+Power BI for analytics and visualization
 
 The Fabric environment contains the project layers and supporting resources required to execute the notebooks.
 
----
 
-# 9. Project Structure
-
-```text
-Earthquake Data Engineering
-│
-├── Bronze layer.ipynb
-│   └── API ingestion → Raw JSON
-│
-├── Silver layer.ipynb
-│   └── Raw JSON → Clean structured table
-│
-├── Gold layer.ipynb
-│   └── Silver table → Enriched analytics table
-│
-└── README.md
-```
-
----
-
-# 10. Technologies
-
-| Technology | Usage |
-|---|---|
-| Microsoft Fabric | Data engineering platform |
-| Fabric Lakehouse | Data storage and tables |
-| Apache Spark / PySpark | Data processing |
-| Python | API ingestion and enrichment |
-| USGS Earthquake API | Source data |
-| JSON / GeoJSON | Raw data format |
-| `reverse_geocoder` | Geographic enrichment |
-
----
-
-# 11. Key Data Engineering Concepts Demonstrated
+# 11. Technologies
+Technology	Usage
+Microsoft Fabric	Data engineering platform
+Fabric Lakehouse	Data storage and tables
+Apache Spark / PySpark	Data processing
+Python	API ingestion and enrichment
+USGS Earthquake API	Source data
+JSON / GeoJSON	Raw data format
+reverse_geocoder	Geographic enrichment
+Microsoft Fabric Pipelines	Pipeline orchestration
+Power BI	Data visualization and analytics
+# 12. Key Data Engineering Concepts Demonstrated
 
 This project demonstrates practical implementation of:
 
-- Medallion Architecture
-- Data ingestion from an external REST API
-- Raw data storage in a Lakehouse
-- JSON/GeoJSON processing
-- PySpark DataFrame transformations
-- Nested-field extraction
-- Data type conversion
-- Timestamp standardization
-- Lakehouse table creation and append operations
-- Data enrichment
-- Reverse geocoding
-- User-defined functions (UDFs)
-- Business-rule classification
-- Separation of raw, transformed, and analytics-ready data
-
----
-
-
----
-
+Medallion Architecture
+Data ingestion from an external REST API
+Raw data storage in a Lakehouse
+JSON/GeoJSON processing
+PySpark DataFrame transformations
+Nested-field extraction
+Data type conversion
+Timestamp standardization
+Lakehouse table creation
+Append-mode data loading
+Data enrichment
+Reverse geocoding
+User-defined functions (UDFs)
+Business-rule classification
+Separation of raw, transformed, and analytics-ready data
+Pipeline parameterization
+Fabric Environment configuration
+Python dependency management
+Pipeline monitoring
+Power BI analytics and visualization
 # 13. Data Quality and Transformation Approach
 
 The architecture intentionally separates ingestion from transformation and enrichment.
 
-### Bronze
+Bronze
 
 Preserves the incoming API data with minimal transformation.
 
-### Silver
+Silver
 
 Creates a consistent analytical structure by:
 
-- Flattening nested fields
-- Renaming columns
-- Extracting geographic coordinates
-- Converting timestamps
-- Selecting relevant attributes
-
-### Gold
+Flattening nested fields
+Renaming columns
+Extracting geographic coordinates
+Converting timestamps
+Selecting relevant attributes
+Gold
 
 Adds business-oriented information by:
 
-- Deriving country codes
-- Categorizing earthquake significance
-- Preparing the dataset for analytical consumption
+Deriving country codes
+Categorizing earthquake significance
+Preparing the dataset for analytical consumption
 
 This separation makes the pipeline easier to maintain and extend.
 
----
+# 14.  Project Outcome
 
-
----
-
-# 15. Project Outcome
-
-The final result is a **three-layer Microsoft Fabric data pipeline** that transforms raw earthquake API data into an enriched, analytics-ready dataset.
+The final result is a three-layer Microsoft Fabric data pipeline that transforms raw earthquake API data into an enriched, analytics-ready dataset.
 
 The project demonstrates how Medallion Architecture can be implemented in Microsoft Fabric to separate:
 
-**Raw ingestion → Data transformation → Business enrichment**
+Raw ingestion → Data transformation → Business enrichment → Analytics
 
-This approach provides a clear and scalable foundation for building earthquake analytics and reporting solutions.
+The final Gold-layer data is consumed by Power BI to provide a visual analytics layer for the processed earthquake events.
+
+The project also demonstrates pipeline execution for different processing dates, including 25/07/2026 and 27/07/2026.
+
+This provides a clear and scalable foundation for building earthquake analytics and reporting solutions using Microsoft Fabric.
+"""
+
+
+
+
